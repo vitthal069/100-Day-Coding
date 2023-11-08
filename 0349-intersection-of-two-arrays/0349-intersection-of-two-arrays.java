@@ -1,25 +1,12 @@
 class Solution {
-    public int[] intersection(int[] nums1, int[] nums2) {
-      Set<Integer> set1 = new HashSet<>();
-        Set<Integer> set2 = new HashSet<>();
+  public int[] intersection(int[] nums1, int[] nums2) {
+    List<Integer> ans = new ArrayList<>();
+    Set<Integer> set = Arrays.stream(nums1).boxed().collect(Collectors.toSet());
 
-        for (int num : nums1) {
-            set1.add(num);
-        }
+    for (final int num : nums2)
+      if (set.remove(num))
+        ans.add(num);
 
-        for (int num : nums2) {
-            set2.add(num);
-        }
-
-        set1.retainAll(set2);
-        int[] result = new
- 
-int[set1.size()];
-        int index = 0;
-        for (int num : set1) {
-            result[index++] = num;
-        }
-
-        return result;
-    }
+    return ans.stream().mapToInt(Integer::intValue).toArray();
+  }
 }
