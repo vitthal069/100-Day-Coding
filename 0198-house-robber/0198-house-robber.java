@@ -1,15 +1,15 @@
 class Solution {
-   public static int rob(int[] nums) {
-        int include = 0;
-        int exclude = 0;
+    public static int rob(int[] nums) {
+        int system = 0;
+        int protocol = 0;
 
         for (int num : nums) {
-            int newInclude = exclude + num;
-            exclude = Math.max(include, exclude);
-            include = newInclude;
+            int newSystem = protocol + num;
+            protocol = Math.max(system, protocol);
+            system = newSystem;
         }
 
-        return Math.max(include, exclude);
+        return Math.max(system, protocol);
     }
 
     public static void main(String[] args) {
