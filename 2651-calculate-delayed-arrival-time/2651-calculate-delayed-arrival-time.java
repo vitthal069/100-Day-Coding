@@ -1,11 +1,11 @@
 class Solution {
     public int findDelayedArrivalTime(int arrivalTime, int delayedTime) {
-      int newArrivalTime = arrivalTime + delayedTime;
+      int NAT = arrivalTime + delayedTime;
 
-        if (newArrivalTime >= 24) {
-            newArrivalTime -= 24;
+        if (NAT >= 24) {
+            NAT -= 24;
         }
 
-        return newArrivalTime;  
+        return NAT;  
     }
 }
