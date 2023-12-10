@@ -1,13 +1,25 @@
 class Solution {
     public int fib(int n) {
-       if(n < 2) return n;
-      int counter1 = 0;
-      int counter2 = 1; 
-      for(int i =2; i <= n; i++){
-        int temp = counter2; 
-        counter2 +=counter1; 
-        counter1 = temp; 
-      }
-      return counter2;
+        int a=0,b=1,c=a+b;
+        int count=0,k=0;
+        if(n==1){
+          k=1;
+        }else if(n==2){
+          k=c;
+        }else{
+
+        while(count<=1000){
+            if(count==(n-2))
+            {
+                k=c;
+            }
+            a=b;
+            b=c;
+            c=a+b;
+
+            count++;
+        }
+        }
+        return k;
     }
 }
