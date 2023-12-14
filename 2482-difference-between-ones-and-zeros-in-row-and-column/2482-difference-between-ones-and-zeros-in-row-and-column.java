@@ -1,25 +1,28 @@
 class Solution {
-  public int[][] onesMinusZeros(int[][] grid) {
-    final int m = grid.length;
-    final int n = grid[0].length;
-    int[][] ans = new int[m][n];
-    int[] onesRow = new int[m];
-    int[] onesCol = new int[n];
+    public int[][] onesMinusZeros(int[][] grid) {
+        int row[]= new int[grid.length];
+        int column[]= new int[grid[0].length];
+        for(int i=0; i<row.length; i++){
+            int one=0;
+            for(int j=0; j<column.length; j++){
+                one = one + grid[i][j];
+            }
+            row[i]= (2*one)-(row.length);
+        }
 
-    for (int i = 0; i < m; ++i)
-      onesRow[i] = (int) Arrays.stream(grid[i]).filter(a -> a == 1).count();
+        for(int j=0; j<column.length; j++){
+            int one=0;
+            for(int i=0; i<row.length; i++){
+                one = one + grid[i][j];
+            }
+            column[j]= (2*one)-(column.length);
+        }
 
-    for (int j = 0; j < n; ++j) {
-      int ones = 0;
-      for (int i = 0; i < m; ++i)
-        ones += grid[i][j];
-      onesCol[j] = ones;
+        for(int i=0; i<grid.length; i++){
+            for(int j=0; j<grid[0].length; j++){
+                grid[i][j]= row[i]+column[j];
+            }
+        }
+        return grid;
     }
-
-    for (int i = 0; i < m; ++i)
-      for (int j = 0; j < n; ++j)
-        ans[i][j] = onesRow[i] + onesCol[j] - (n - onesRow[i]) - (m - onesCol[j]);
-
-    return ans;
-  }
 }
