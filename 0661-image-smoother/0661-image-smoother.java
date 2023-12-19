@@ -1,23 +1,48 @@
 class Solution {
     public int[][] imageSmoother(int[][] img) {
-        int[][] result = new int[img.length][img[0].length];
-        int[][] dirs = new int[][]{ {1, 0}, {0, 1}, {1, 1}, {1, -1}, 
-                                    {-1, 0}, {0, -1}, {-1, -1}, {-1, 1}};
-        
-        for (int i = 0; i < img.length; i++) {
-            for (int j = 0; j < img[0].length; j++) {
-                result[i][j] = img[i][j];
-                int count = 1;
-                for (int[] dir : dirs) {
-                    if (i + dir[0] >= 0 && i + dir[0] < img.length 
-                    && j + dir[1] >= 0 && j + dir[1] < img[0].length) {
-                        count++;
-                        result[i][j] += img[i + dir[0]][j + dir[1]];
+        int[][] res = new int[img.length][img[0].length];
+        for(int i = 0; i < img.length; i++){
+            for(int j = 0; j < img[0].length; j++){
+                double sum = 0;
+                int cells = 0;
+                if(j > 0) {
+                    sum += img[i][j-1];
+                    cells++;
+                    if(i > 0){
+                        sum += img[i-1][j-1];
+                        cells++;
+                    }
+                    if(i < img.length -1) {
+                        sum += img[i+1][j-1];
+                        cells++;
                     }
                 }
-                result[i][j] /= count;
+                if(i < img.length - 1) {
+                    sum+= img[i+1][j];
+                    cells++;
+                }
+                if(i > 0){
+                    sum += img[i-1][j];
+                    cells++;
+                }
+                if(j < img[0].length - 1) {
+                    sum += img[i][j+1];
+                    cells++;
+                    if(i > 0) {
+                        sum += img[i-1][j+1];
+                        cells++;
+                    }
+                    if(i < img.length - 1) {
+                        sum += img[i+1][j+1];
+                        cells++;
+                    }
+                }
+                sum += img[i][j];
+                cells++;
+                sum = Math.floor(sum / cells);
+                res[i][j] = (int) sum;
             }
         }
-        return result;
+        return res;
     }
 }
