@@ -1,15 +1,17 @@
 class Solution {
   public int[] constructRectangle(int area) {
-    ArrayList<Integer> list=new ArrayList<>();
-        for(int i=1;i<=Math.sqrt(area);i++){
-            if(area%i==0){
-                list.add(i);
-                list.add(area/i);
+    int save = Integer.MAX_VALUE;
+        int[] lw = new int[2];
+        for(int i = 1; i <= area; i++){
+            if(area % i == 0){
+                int other = area/i;
+                if(i - other >= 0 && (i - other < save)){
+                    lw[0] = i;
+                    lw[1] = other;
+                    save = i - other;
+                }
             }
         }
-        if(list.size()==1){
-            return new int[] {1,1};
-        }
-        return new int[] {list.get(list.size()-1), list.get(list.size()-2)};
+        return lw;
 }
 }
