@@ -1,17 +1,17 @@
 class Solution {
   public int[] constructRectangle(int area) {
-    int save = Integer.MAX_VALUE;
-        int[] lw = new int[2];
-        for(int i = 1; i <= area; i++){
-            if(area % i == 0){
-                int other = area/i;
-                if(i - other >= 0 && (i - other < save)){
-                    lw[0] = i;
-                    lw[1] = other;
-                    save = i - other;
-                }
-            }
+    int[] ans = new int[2];
+      
+        int a = (int)Math.sqrt(area);
+
+        while ( area % a != 0 ) {
+            a--;
         }
-        return lw;
+
+        int b = area / a;
+        ans[0] = b;
+        ans[1] = a;
+
+        return ans;
 }
 }
