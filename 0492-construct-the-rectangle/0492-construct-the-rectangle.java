@@ -1,20 +1,10 @@
 class Solution {
   public int[] constructRectangle(int area) {
-    int l = 1;
-        int r = 1;
-        int[] result = new int[2];
+    int width = (int) Math.sqrt(area);
 
-        for(int i = 1; i <= area; i++) {
-            if (area % i == 0 && (area / i >= i)) {
-                    l = area / i;
-                    r = i;
+    while (area % width > 0)
+      --width;
 
-            }
-        }
-
-        result[0] = l;
-        result[1] = r;
-
-        return result;
+    return new int[] {area / width, width};
   }
 }
