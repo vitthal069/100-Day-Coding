@@ -1,23 +1,19 @@
 class Solution {
   public int[] findMissingAndRepeatedValues(int[][] grid) {
-    final int n = grid.length;
-    final int nSquared = n * n;
-    int[] count = new int[nSquared + 1];
-
-    for (int[] row : grid)
-      for (final int num : row)
-        ++count[num];
-
-    int repeated = -1;
-    int missing = -1;
-
-    for (int i = 1; i <= nSquared; ++i) {
-      if (count[i] == 2)
-        repeated = i;
-      if (count[i] == 0)
-        missing = i;
-    }
-
-    return new int[] {repeated, missing};
+    int[] output = new int[2];
+        int max = (int) Math.pow(grid[0].length, 2);
+        Set<Integer> ints = new HashSet<>();
+        int sum=0;
+        for(int i=0; i<grid.length; i++) {
+            for(int j=0; j<grid[0].length; j++) {
+                if(!ints.add(grid[i][j])) {
+                    output[0] = grid[i][j];
+                } else {
+                    sum+=grid[i][j];
+                }
+            }
+        }
+        output[1] = (max*(max+1)/2)-sum;
+        return output;
   }
 }
