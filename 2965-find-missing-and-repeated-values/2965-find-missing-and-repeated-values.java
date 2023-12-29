@@ -1,26 +1,28 @@
 class Solution {
   public int[] findMissingAndRepeatedValues(int[][] grid) {
-    int[] ans = new int[2];
-        int row = grid.length;
-        int col = grid[0].length;
-        HashMap<Integer,Integer> map = new HashMap<>();
-        for(int i=0;i<row;i++){
-            for(int j=0;j<col;j++){
-                if(map.containsKey(grid[i][j]))
-                    map.put(grid[i][j] , map.get(grid[i][j]) + 1);
-                else
-                    map.put(grid[i][j] , 1);
+     Set<Integer> set=new HashSet<>();
+        int a=-1;
+        int tot_sum=0;
+        for(int i=0;i<grid.length;i++)
+        {
+            for(int j=0;j<grid.length;j++)
+            {
+                if(set.contains(grid[i][j]))
+                {
+                    a=grid[i][j];
+                }
+                tot_sum+=grid[i][j];
+                set.add(grid[i][j]);
             }
         }
+        System.out.println(tot_sum);
+        int n=grid.length;
+        n=n*n;
+        int sum=(n*(n+1))/2;
         
-        for (int i = 1; i <= row * col; i++) {
-           if (map.containsKey(i)) {
-                if (map.get(i) > 1)
-               ans[0] = i; // repeated value
-          } else {
-             ans[1] = i; // missing value
-         }
-       }
+        int ans[]=new int[2];
+        ans[0]=a;
+        ans[1]=sum-(Math.abs(tot_sum-a));
         return ans;
   }
 }
