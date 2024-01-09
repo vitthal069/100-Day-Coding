@@ -1,8 +1,28 @@
 class Solution {
-  public boolean isFascinating(int n) {
-    String s = Integer.toString(n) + Integer.toString(2 * n) + Integer.toString(3 * n);
-    char[] charArray = s.toCharArray();
-    Arrays.sort(charArray);
-    return new String(charArray).equals("123456789");
-  }
+    HashSet<Integer> s = new HashSet<>();
+    public boolean check(int n){
+       while(n>0){
+           if(s.contains(n%10)){
+               return false;
+           }
+           s.add(n%10);
+           n = n/10;
+       }
+       return true;
+       }
+    public boolean isFascinating(int n) {
+       if(check(n)==false){
+           return false;
+       }
+       if(check(2*n)== false){
+           return false;
+       }
+       if(check(3*n)== false){
+           return false;
+       }
+       if(s.contains(0) || s.size()!=9){
+           return false;
+       }
+       return true;
+    }
 }
