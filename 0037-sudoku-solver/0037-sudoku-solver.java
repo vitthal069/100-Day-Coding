@@ -1,89 +1,74 @@
 class Solution {
-    private int[][] result = new int[9][9];
-    private boolean[][] modifiable = new boolean[9][9];
+    private int[] rowUsed = new int[9];
+    private int[] colUsed = new int[9];
+    private int[][] blockUsed = new int[3][3];
+    private List<int[]> emptySpaces = new ArrayList<int[]>();
+    private boolean isValidSolution = false;
 
     public void solveSudoku(char[][] board) {
-        markModifiable(board);
-        recurse(0);
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                board[i][j] = Integer.toString(result[i][j]).charAt(0);
-            }
-        }
-    }
-
-    private void markModifiable(char[][] board) {
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                modifiable[i][j] = (board[i][j] == '.');
-                if (!modifiable[i][j]) {
-                    result[i][j] = Integer.parseInt(String.valueOf(board[i][j]));
+        for (int i = 0; i < 9; ++i) {
+            for (int j = 0; j < 9; ++j) {
+                if (board[i][j] != '.') {
+                    int digit = board[i][j] - '0' - 1;
+                    markUsed(i, j, digit);
                 }
             }
         }
-    }
 
-    private boolean recurse(int idx) {
-        if (idx == 81) {
-            return true;
-        }
-
-        int row = idx / 9;
-        int column = idx % 9;
-
-        for (int candidate = 1; candidate < 10; candidate++) {
-            if (modifiable[row][column]) {
-                result[row][column] = candidate;
-                if (isValid(row, column) && recurse(idx + 1)) {
-                    return true;
+        while (true) {
+            boolean modified = false;
+            for (int i = 0; i < 9; ++i) {
+                for (int j = 0; j < 9; ++j) {
+                    if (board[i][j] == '.') {
+                        int mask = ~(rowUsed[i] | colUsed[j] | blockUsed[i / 3][j / 3]) & 0x1ff;
+                        if ((mask & (mask - 1)) == 0) {
+                            int digit = Integer.bitCount(mask - 1);
+                            markUsed(i, j, digit);
+                            board[i][j] = (char) (digit + '0' + 1);
+                            modified = true;
+                        }
+                    }
                 }
-            } else {
-                return recurse(idx + 1);
+            }
+            
+            if (!modified) {
+                break;
             }
         }
-        result[row][column] = 0;
-        return false;
-    }
 
-    private boolean isValid(int i, int j) {
-        return isValidRow(i) && isValidColumn(j) && isValidBlock(i, j);
-    }
-
-    private boolean isValidRow(int i) {
-        boolean[] seen = new boolean[10];
-        for (int j = 0; j < 9; j++) {
-            int value = result[i][j];
-            if (seen[value] && value != 0) {
-                return false;
-            }
-            seen[value] = true;
-        }
-        return true;
-    }
-
-    private boolean isValidColumn(int j) {
-        boolean[] seen = new boolean[10];
-        for (int i = 0; i < 9; i++) {
-            int value = result[i][j];
-            if (seen[value] && value != 0) {
-                return false;
-            }
-            seen[value] = true;
-        }
-        return true;
-    }
-
-    private boolean isValidBlock(int i, int j) {
-        boolean[] seen = new boolean[10];
-        for (int row = (i / 3) * 3; row < (i / 3) * 3 + 3; row++) {
-            for (int column = (j / 3) * 3; column < (j / 3) * 3 + 3; column++) {
-                int value = result[row][column];
-                if (seen[value] && value != 0) {
-                    return false;
+        for (int i = 0; i < 9; ++i) {
+            for (int j = 0; j < 9; ++j) {
+                if (board[i][j] == '.') {
+                    emptySpaces.add(new int[]{i, j});
                 }
-                seen[value] = true;
-           }
+            }
         }
-        return true;
+
+        backtrackSudoku(board, 0);
+    }
+
+    public void backtrackSudoku(char[][] board, int pos) {
+        if (pos == emptySpaces.size()) {
+            isValidSolution = true;
+            return;
+        }
+
+        int[] space = emptySpaces.get(pos);
+        int i = space[0], j = space[1];
+        int mask = ~(rowUsed[i] | colUsed[j] | blockUsed[i / 3][j / 3]) & 0x1ff;
+        for (; mask != 0 && !isValidSolution; mask &= (mask - 1)) {
+            int digitMask = mask & (-mask);
+            int digit = Integer.bitCount(digitMask - 1);
+            markUsed(i, j, digit);
+            board[i][j] = (char) (digit + '0' + 1);
+            backtrackSudoku(board, pos + 1);
+            markUsed(i, j, digit);
+        }
+    }
+
+    public void markUsed(int i, int j, int digit) {
+        rowUsed[i] ^= (1 << digit);
+        colUsed[j] ^= (1 << digit);
+        blockUsed[i / 3][j / 3] ^= (1 << digit);
     }
 }
