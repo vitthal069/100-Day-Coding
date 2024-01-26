@@ -1,23 +1,27 @@
 class Solution {
     public String decodeMessage(String key, String message) {
-        key = key.replaceAll(" ", "");
-        char alphabet = 'a';
-        HashMap<Character,Character> ans = new HashMap<>();
-        for (int i=0;i<key.length();i++) {
-            if (ans.containsKey(key.charAt(i)) == false) {
-                ans.put(key.charAt(i),alphabet);
-                alphabet++;
+        StringBuilder result = new StringBuilder();
+
+        // Creare la tablla per la decifrazione
+        Map<Character, Character> decipherTable = new HashMap<>();
+        int alphabetLetter = 97;
+
+        for (int i = 0; i < key.length(); i++) {
+            if (!decipherTable.containsKey(key.charAt(i)) && key.charAt(i) != ' ') {
+                decipherTable.put(key.charAt(i), (char) alphabetLetter);
+                alphabetLetter++;
             }
         }
-        StringBuilder sb = new StringBuilder();
-        for (int i=0;i<message.length();i++) {
-            if (ans.containsKey(message.charAt(i))) {
-                sb.append(ans.get(message.charAt(i)));
-            }
-            else {
-                sb.append(message.charAt(i));
+
+        // Decifrare
+        for (int i = 0; i < message.length(); i++) {
+            if (message.charAt(i) == ' ') {
+                result.append(' ');
+            } else {
+                result.append(decipherTable.get(message.charAt(i)));
             }
         }
-        return sb.toString();
+
+        return result.toString();
     }
 }
