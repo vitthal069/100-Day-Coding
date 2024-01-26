@@ -1,33 +1,23 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class Solution {
     public String decodeMessage(String key, String message) {
-        String alphabet = "abcdefghijklmnopqrstuvwxyz";
-        List<Character> result = new ArrayList<>();
-        List<Character> uniqueKey = new ArrayList<>();
-
-        for (char c: key.toCharArray()) {
-            if(!uniqueKey.contains(c) && c != ' '){
-                uniqueKey.add(c);
+        key = key.replaceAll(" ", "");
+        char alphabet = 'a';
+        HashMap<Character,Character> ans = new HashMap<>();
+        for (int i=0;i<key.length();i++) {
+            if (ans.containsKey(key.charAt(i)) == false) {
+                ans.put(key.charAt(i),alphabet);
+                alphabet++;
             }
         }
-
-
-        for(char c: message.toCharArray()){
-            if(c != ' '){
-                int index = uniqueKey.indexOf(c);
-                result.add(alphabet.charAt(index));
+        StringBuilder sb = new StringBuilder();
+        for (int i=0;i<message.length();i++) {
+            if (ans.containsKey(message.charAt(i))) {
+                sb.append(ans.get(message.charAt(i)));
             }
-            else{
-                result.add(' ');
+            else {
+                sb.append(message.charAt(i));
             }
         }
-        String decodedMessage = new String();
-
-        for(char c:result){
-            decodedMessage= decodedMessage + c;
-        }
-        return decodedMessage;
+        return sb.toString();
     }
 }
