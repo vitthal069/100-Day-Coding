@@ -1,38 +1,51 @@
 class Solution {
-  public int maximumGain(String s, int x, int y) {
-    // The assumption that gain("ab") > gain("ba") while removing "ba" first is
-    // optimal is contradicted. Only "b(ab)a" satisfies the condition of
-    // preventing two "ba" removals, but after removing "ab", we can still
-    // remove one "ba", resulting in a higher gain. Thus, removing "ba" first is
-    // not optimal.
-    return x > y ? gain(s, "ab", x, "ba", y) : gain(s, "ba", y, "ab", x);
-  }
 
-  // Returns the points gained by first removing sub1 ("ab" | "ba") from s with
-  // point1, then removing sub2 ("ab" | "ba") from s with point2.
-  private int gain(final String s, final String sub1, int point1, final String sub2, int point2) {
-    int points = 0;
-    Stack<Character> stack1 = new Stack<>();
-    Stack<Character> stack2 = new Stack<>();
+    public int maximumGain(String s, int x, int y) {
+        StringBuilder text = new StringBuilder(s);
+        int totalPoints = 0;
 
-    // Remove "sub1" from s with point1 gain.
-    for (final char c : s.toCharArray())
-      if (!stack1.isEmpty() && stack1.peek() == sub1.charAt(0) && c == sub1.charAt(1)) {
-        stack1.pop();
-        points += point1;
-      } else {
-        stack1.push(c);
-      }
+        if (x > y) {
+            // Remove "ab" first (higher points), then "ba"
+            totalPoints += removeSubstring(text, "ab", x);
+            totalPoints += removeSubstring(text, "ba", y);
+        } else {
+            // Remove "ba" first (higher or equal points), then "ab"
+            totalPoints += removeSubstring(text, "ba", y);
+            totalPoints += removeSubstring(text, "ab", x);
+        }
 
-    // Remove "sub2" from s with point2 gain.
-    for (final char c : stack1)
-      if (!stack2.isEmpty() && stack2.peek() == sub2.charAt(0) && c == sub2.charAt(1)) {
-        stack2.pop();
-        points += point2;
-      } else {
-        stack2.push(c);
-      }
+        return totalPoints;
+    }
 
-    return points;
-  }
+    private int removeSubstring(
+        StringBuilder inputString,
+        String targetSubstring,
+        int pointsPerRemoval
+    ) {
+        int totalPoints = 0;
+        int writeIndex = 0;
+
+        // Iterate through the string
+        for (int readIndex = 0; readIndex < inputString.length(); readIndex++) {
+            // Add the current character
+            inputString.setCharAt(writeIndex++, inputString.charAt(readIndex));
+
+            // Check if we've written at least two characters and
+            // they match the target substring
+            if (
+                writeIndex > 1 &&
+                inputString.charAt(writeIndex - 2) ==
+                    targetSubstring.charAt(0) &&
+                inputString.charAt(writeIndex - 1) == targetSubstring.charAt(1)
+            ) {
+                writeIndex -= 2; // Move write index back to remove the match
+                totalPoints += pointsPerRemoval;
+            }
+        }
+
+        // Trim the StringBuilder to remove any leftover characters
+        inputString.setLength(writeIndex);
+
+        return totalPoints;
+    }
 }
