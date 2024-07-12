@@ -1,35 +1,36 @@
 class Solution {
 
     public int maximumGain(String s, int x, int y) {
-        if (x < y) {
-            int temp = x;
-            x = y;
-            y = temp;
-            s = new StringBuilder(s).reverse().toString();
-        }
-
-        int aCount = 0, bCount = 0, totalPoints = 0;
-
+        int aCount = 0;
+        int bCount = 0;
+        int lesser = Math.min(x, y);
+        int result = 0;
+        
         for (int i = 0; i < s.length(); i++) {
-            char currentChar = s.charAt(i);
-
-            if (currentChar == 'a') {
-                aCount++;
-            } else if (currentChar == 'b') {
-                if (aCount > 0) {
-                    aCount--;
-                    totalPoints += x;
+            char c = s.charAt(i);
+            if (c > 'b') {
+                result += Math.min(aCount, bCount) * lesser;
+                aCount = 0;
+                bCount = 0;
+            } else if (c == 'a') {
+                if (x < y && bCount > 0) {
+                    bCount--;
+                    result += y;
                 } else {
-                    bCount++;
+                    aCount++;
                 }
             } else {
-                totalPoints += Math.min(bCount, aCount) * y;
-                aCount = bCount = 0;
+                if (x > y && aCount > 0) {
+                    aCount--;
+                    result += x;
+                } else {
+                    bCount++;
+                };
             }
         }
-
-        totalPoints += Math.min(bCount, aCount) * y;
-
-        return totalPoints;
+        
+        result += Math.min(aCount, bCount) * lesser;
+        
+        return result;
     }
 }
