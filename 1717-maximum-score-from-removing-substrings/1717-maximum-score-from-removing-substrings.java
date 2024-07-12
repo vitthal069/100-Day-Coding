@@ -1,50 +1,34 @@
 class Solution {
 
     public int maximumGain(String s, int x, int y) {
-        StringBuilder text = new StringBuilder(s);
-        int totalPoints = 0;
-
-        if (x > y) {
-            // Remove "ab" first (higher points), then "ba"
-            totalPoints += removeSubstring(text, "ab", x);
-            totalPoints += removeSubstring(text, "ba", y);
-        } else {
-            // Remove "ba" first (higher or equal points), then "ab"
-            totalPoints += removeSubstring(text, "ba", y);
-            totalPoints += removeSubstring(text, "ab", x);
+        if (x < y) {
+            int temp = x;
+            x = y;
+            y = temp;
+            s = new StringBuilder(s).reverse().toString();
         }
 
-        return totalPoints;
-    }
+        int aCount = 0, bCount = 0, totalPoints = 0;
 
-    private int removeSubstring(
-        StringBuilder inputString,
-        String targetSubstring,
-        int pointsPerRemoval
-    ) {
-        int totalPoints = 0;
-        int writeIndex = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char currentChar = s.charAt(i);
 
-        // Iterate through the string
-        for (int readIndex = 0; readIndex < inputString.length(); readIndex++) {
-            // Add the current character
-            inputString.setCharAt(writeIndex++, inputString.charAt(readIndex));
-
-            // Check if we've written at least two characters and
-            // they match the target substring
-            if (
-                writeIndex > 1 &&
-                inputString.charAt(writeIndex - 2) ==
-                    targetSubstring.charAt(0) &&
-                inputString.charAt(writeIndex - 1) == targetSubstring.charAt(1)
-            ) {
-                writeIndex -= 2; // Move write index back to remove the match
-                totalPoints += pointsPerRemoval;
+            if (currentChar == 'a') {
+                aCount++;
+            } else if (currentChar == 'b') {
+                if (aCount > 0) {
+                    aCount--;
+                    totalPoints += x;
+                } else {
+                    bCount++;
+                }
+            } else {
+                totalPoints += Math.min(bCount, aCount) * y;
+                aCount = bCount = 0;
             }
         }
 
-        // Trim the StringBuilder to remove any leftover characters
-        inputString.setLength(writeIndex);
+        totalPoints += Math.min(bCount, aCount) * y;
 
         return totalPoints;
     }
