@@ -3,7 +3,6 @@ class Solution {
         int maxLen = 0;
         int left = 0, right = 0;
 
-        // Left to right scan
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(') {
                 left++;
@@ -18,7 +17,6 @@ class Solution {
         }
 
         left = right = 0;
-        // Right to left scan
         for (int i = s.length() - 1; i >= 0; i--) {
             if (s.charAt(i) == '(') {
                 left++;
