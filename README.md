@@ -18,4 +18,9 @@
 |  |
 | ------- |
 | [1744-number-of-ways-to-form-a-target-string-given-a-dictionary](https://github.com/vitthal069/100-Day-Coding/tree/master/1744-number-of-ways-to-form-a-target-string-given-a-dictionary) |
+| [0020-valid-parentheses](https://github.com/vitthal069/100-Day-Coding/tree/master/0020-valid-parentheses) |
+## Stack
+|  |
+| ------- |
+| [0020-valid-parentheses](https://github.com/vitthal069/100-Day-Coding/tree/master/0020-valid-parentheses) |
 <!---LeetCode Topics End-->
