@@ -19,8 +19,13 @@
 | ------- |
 | [1744-number-of-ways-to-form-a-target-string-given-a-dictionary](https://github.com/vitthal069/100-Day-Coding/tree/master/1744-number-of-ways-to-form-a-target-string-given-a-dictionary) |
 | [0020-valid-parentheses](https://github.com/vitthal069/100-Day-Coding/tree/master/0020-valid-parentheses) |
+| [1537-maximum-score-after-splitting-a-string](https://github.com/vitthal069/100-Day-Coding/tree/master/1537-maximum-score-after-splitting-a-string) |
 ## Stack
 |  |
 | ------- |
 | [0020-valid-parentheses](https://github.com/vitthal069/100-Day-Coding/tree/master/0020-valid-parentheses) |
+## Prefix Sum
+|  |
+| ------- |
+| [1537-maximum-score-after-splitting-a-string](https://github.com/vitthal069/100-Day-Coding/tree/master/1537-maximum-score-after-splitting-a-string) |
 <!---LeetCode Topics End-->
