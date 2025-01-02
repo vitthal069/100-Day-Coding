@@ -7,6 +7,7 @@
 | [0689-maximum-sum-of-3-non-overlapping-subarrays](https://github.com/vitthal069/100-Day-Coding/tree/master/0689-maximum-sum-of-3-non-overlapping-subarrays) |
 | [1744-number-of-ways-to-form-a-target-string-given-a-dictionary](https://github.com/vitthal069/100-Day-Coding/tree/master/1744-number-of-ways-to-form-a-target-string-given-a-dictionary) |
 | [1025-minimum-cost-for-tickets](https://github.com/vitthal069/100-Day-Coding/tree/master/1025-minimum-cost-for-tickets) |
+| [2691-count-vowel-strings-in-ranges](https://github.com/vitthal069/100-Day-Coding/tree/master/2691-count-vowel-strings-in-ranges) |
 ## Dynamic Programming
 |  |
 | ------- |
@@ -20,6 +21,7 @@
 | [1744-number-of-ways-to-form-a-target-string-given-a-dictionary](https://github.com/vitthal069/100-Day-Coding/tree/master/1744-number-of-ways-to-form-a-target-string-given-a-dictionary) |
 | [0020-valid-parentheses](https://github.com/vitthal069/100-Day-Coding/tree/master/0020-valid-parentheses) |
 | [1537-maximum-score-after-splitting-a-string](https://github.com/vitthal069/100-Day-Coding/tree/master/1537-maximum-score-after-splitting-a-string) |
+| [2691-count-vowel-strings-in-ranges](https://github.com/vitthal069/100-Day-Coding/tree/master/2691-count-vowel-strings-in-ranges) |
 ## Stack
 |  |
 | ------- |
@@ -28,4 +30,5 @@
 |  |
 | ------- |
 | [1537-maximum-score-after-splitting-a-string](https://github.com/vitthal069/100-Day-Coding/tree/master/1537-maximum-score-after-splitting-a-string) |
+| [2691-count-vowel-strings-in-ranges](https://github.com/vitthal069/100-Day-Coding/tree/master/2691-count-vowel-strings-in-ranges) |
 <!---LeetCode Topics End-->
