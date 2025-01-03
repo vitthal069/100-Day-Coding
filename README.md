@@ -23,6 +23,7 @@
 | [0020-valid-parentheses](https://github.com/vitthal069/100-Day-Coding/tree/master/0020-valid-parentheses) |
 | [1537-maximum-score-after-splitting-a-string](https://github.com/vitthal069/100-Day-Coding/tree/master/1537-maximum-score-after-splitting-a-string) |
 | [2691-count-vowel-strings-in-ranges](https://github.com/vitthal069/100-Day-Coding/tree/master/2691-count-vowel-strings-in-ranges) |
+| [0030-substring-with-concatenation-of-all-words](https://github.com/vitthal069/100-Day-Coding/tree/master/0030-substring-with-concatenation-of-all-words) |
 ## Stack
 |  |
 | ------- |
@@ -33,4 +34,12 @@
 | [1537-maximum-score-after-splitting-a-string](https://github.com/vitthal069/100-Day-Coding/tree/master/1537-maximum-score-after-splitting-a-string) |
 | [2691-count-vowel-strings-in-ranges](https://github.com/vitthal069/100-Day-Coding/tree/master/2691-count-vowel-strings-in-ranges) |
 | [2358-number-of-ways-to-split-array](https://github.com/vitthal069/100-Day-Coding/tree/master/2358-number-of-ways-to-split-array) |
+## Hash Table
+|  |
+| ------- |
+| [0030-substring-with-concatenation-of-all-words](https://github.com/vitthal069/100-Day-Coding/tree/master/0030-substring-with-concatenation-of-all-words) |
+## Sliding Window
+|  |
+| ------- |
+| [0030-substring-with-concatenation-of-all-words](https://github.com/vitthal069/100-Day-Coding/tree/master/0030-substring-with-concatenation-of-all-words) |
 <!---LeetCode Topics End-->
