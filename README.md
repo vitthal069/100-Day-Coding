@@ -24,6 +24,7 @@
 | [1537-maximum-score-after-splitting-a-string](https://github.com/vitthal069/100-Day-Coding/tree/master/1537-maximum-score-after-splitting-a-string) |
 | [2691-count-vowel-strings-in-ranges](https://github.com/vitthal069/100-Day-Coding/tree/master/2691-count-vowel-strings-in-ranges) |
 | [0030-substring-with-concatenation-of-all-words](https://github.com/vitthal069/100-Day-Coding/tree/master/0030-substring-with-concatenation-of-all-words) |
+| [2059-unique-length-3-palindromic-subsequences](https://github.com/vitthal069/100-Day-Coding/tree/master/2059-unique-length-3-palindromic-subsequences) |
 ## Stack
 |  |
 | ------- |
@@ -34,12 +35,18 @@
 | [1537-maximum-score-after-splitting-a-string](https://github.com/vitthal069/100-Day-Coding/tree/master/1537-maximum-score-after-splitting-a-string) |
 | [2691-count-vowel-strings-in-ranges](https://github.com/vitthal069/100-Day-Coding/tree/master/2691-count-vowel-strings-in-ranges) |
 | [2358-number-of-ways-to-split-array](https://github.com/vitthal069/100-Day-Coding/tree/master/2358-number-of-ways-to-split-array) |
+| [2059-unique-length-3-palindromic-subsequences](https://github.com/vitthal069/100-Day-Coding/tree/master/2059-unique-length-3-palindromic-subsequences) |
 ## Hash Table
 |  |
 | ------- |
 | [0030-substring-with-concatenation-of-all-words](https://github.com/vitthal069/100-Day-Coding/tree/master/0030-substring-with-concatenation-of-all-words) |
+| [2059-unique-length-3-palindromic-subsequences](https://github.com/vitthal069/100-Day-Coding/tree/master/2059-unique-length-3-palindromic-subsequences) |
 ## Sliding Window
 |  |
 | ------- |
 | [0030-substring-with-concatenation-of-all-words](https://github.com/vitthal069/100-Day-Coding/tree/master/0030-substring-with-concatenation-of-all-words) |
+## Bit Manipulation
+|  |
+| ------- |
+| [2059-unique-length-3-palindromic-subsequences](https://github.com/vitthal069/100-Day-Coding/tree/master/2059-unique-length-3-palindromic-subsequences) |
 <!---LeetCode Topics End-->
