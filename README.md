@@ -10,6 +10,7 @@
 | [2691-count-vowel-strings-in-ranges](https://github.com/vitthal069/100-Day-Coding/tree/master/2691-count-vowel-strings-in-ranges) |
 | [2358-number-of-ways-to-split-array](https://github.com/vitthal069/100-Day-Coding/tree/master/2358-number-of-ways-to-split-array) |
 | [2465-shifting-letters-ii](https://github.com/vitthal069/100-Day-Coding/tree/master/2465-shifting-letters-ii) |
+| [1895-minimum-number-of-operations-to-move-all-balls-to-each-box](https://github.com/vitthal069/100-Day-Coding/tree/master/1895-minimum-number-of-operations-to-move-all-balls-to-each-box) |
 ## Dynamic Programming
 |  |
 | ------- |
@@ -27,6 +28,7 @@
 | [0030-substring-with-concatenation-of-all-words](https://github.com/vitthal069/100-Day-Coding/tree/master/0030-substring-with-concatenation-of-all-words) |
 | [2059-unique-length-3-palindromic-subsequences](https://github.com/vitthal069/100-Day-Coding/tree/master/2059-unique-length-3-palindromic-subsequences) |
 | [2465-shifting-letters-ii](https://github.com/vitthal069/100-Day-Coding/tree/master/2465-shifting-letters-ii) |
+| [1895-minimum-number-of-operations-to-move-all-balls-to-each-box](https://github.com/vitthal069/100-Day-Coding/tree/master/1895-minimum-number-of-operations-to-move-all-balls-to-each-box) |
 ## Stack
 |  |
 | ------- |
@@ -39,6 +41,7 @@
 | [2358-number-of-ways-to-split-array](https://github.com/vitthal069/100-Day-Coding/tree/master/2358-number-of-ways-to-split-array) |
 | [2059-unique-length-3-palindromic-subsequences](https://github.com/vitthal069/100-Day-Coding/tree/master/2059-unique-length-3-palindromic-subsequences) |
 | [2465-shifting-letters-ii](https://github.com/vitthal069/100-Day-Coding/tree/master/2465-shifting-letters-ii) |
+| [1895-minimum-number-of-operations-to-move-all-balls-to-each-box](https://github.com/vitthal069/100-Day-Coding/tree/master/1895-minimum-number-of-operations-to-move-all-balls-to-each-box) |
 ## Hash Table
 |  |
 | ------- |
