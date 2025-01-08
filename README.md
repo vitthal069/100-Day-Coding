@@ -12,6 +12,7 @@
 | [2465-shifting-letters-ii](https://github.com/vitthal069/100-Day-Coding/tree/master/2465-shifting-letters-ii) |
 | [1895-minimum-number-of-operations-to-move-all-balls-to-each-box](https://github.com/vitthal069/100-Day-Coding/tree/master/1895-minimum-number-of-operations-to-move-all-balls-to-each-box) |
 | [3309-count-prefix-and-suffix-pairs-i](https://github.com/vitthal069/100-Day-Coding/tree/master/3309-count-prefix-and-suffix-pairs-i) |
+| [1524-string-matching-in-an-array](https://github.com/vitthal069/100-Day-Coding/tree/master/1524-string-matching-in-an-array) |
 ## Dynamic Programming
 |  |
 | ------- |
@@ -31,6 +32,7 @@
 | [2465-shifting-letters-ii](https://github.com/vitthal069/100-Day-Coding/tree/master/2465-shifting-letters-ii) |
 | [1895-minimum-number-of-operations-to-move-all-balls-to-each-box](https://github.com/vitthal069/100-Day-Coding/tree/master/1895-minimum-number-of-operations-to-move-all-balls-to-each-box) |
 | [3309-count-prefix-and-suffix-pairs-i](https://github.com/vitthal069/100-Day-Coding/tree/master/3309-count-prefix-and-suffix-pairs-i) |
+| [1524-string-matching-in-an-array](https://github.com/vitthal069/100-Day-Coding/tree/master/1524-string-matching-in-an-array) |
 ## Stack
 |  |
 | ------- |
@@ -69,6 +71,7 @@
 |  |
 | ------- |
 | [3309-count-prefix-and-suffix-pairs-i](https://github.com/vitthal069/100-Day-Coding/tree/master/3309-count-prefix-and-suffix-pairs-i) |
+| [1524-string-matching-in-an-array](https://github.com/vitthal069/100-Day-Coding/tree/master/1524-string-matching-in-an-array) |
 ## Hash Function
 |  |
 | ------- |
